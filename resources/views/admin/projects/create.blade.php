@@ -20,7 +20,7 @@
                                 name='tecnologies[]' value='{{ $tecnology->id }}'
                                 @if ($project?->tecnologies->contains($tecnology->id)) checked @endif>
                             <label class="btn btn-outline-primary"
-                                for=""tecnology_{{ $tecnology->id }}">{{ $tecnology->name }}</label>
+                                for="tecnology_{{ $tecnology->id }}">{{ $tecnology->name }}</label>
                         @endforeach
                     </div>
                     <div class="mb-3">
