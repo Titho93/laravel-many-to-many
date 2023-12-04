@@ -8,8 +8,9 @@
 
         <div class="row">
             <div class="col-8">
-                <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ $route }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method($method)
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="name">

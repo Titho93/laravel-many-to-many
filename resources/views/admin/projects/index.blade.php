@@ -35,7 +35,7 @@
                                     class="fa-solid fa-plus"></i></a>
                             <a class="btn btn-dark" href="{{ route('admin.projects.edit', $project) }}"><i
                                     class="fa-solid fa-pen-to-square"></i></a>
-                            <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project->id) }}"
+                            <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project) }}"
                                 method="POST" onsubmit="return confirm ('Are you sure DELETE this Project?')">
                                 @csrf
                                 @method('DELETE')
