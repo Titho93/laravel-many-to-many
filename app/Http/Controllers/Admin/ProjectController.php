@@ -29,8 +29,11 @@ class ProjectController extends Controller
      */
     public function create(Project $project)
     {
+        $title = 'Insert New Projects';
+        $method = 'POST';
+        $route = route('admin.projects.store');
         $tecnologies = Tecnology::all();
-        return view('admin.projects.create', compact('project', 'tecnologies'));
+        return view('admin.projects.create', compact('project', 'tecnologies', 'title', 'method', 'route'));
     }
 
     /**
@@ -74,8 +77,11 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        $title = 'Edit Projects';
+        $method = 'PUT';
+        $route = route('admin.projects.update', $project);
         $tecnologies = Tecnology::all();
-        return view('admin.projects.edit', compact('project', 'tecnologies'));
+        return view('admin.projects.edit', compact('project', 'tecnologies', 'title', 'method', 'route'));
     }
 
     /**
@@ -95,7 +101,7 @@ class ProjectController extends Controller
 
         $project->update($form_data);
 
-        return redirect()->route('admin.project.show', $project);
+        return redirect()->route('admin.projects.show', $project);
     }
 
     /**

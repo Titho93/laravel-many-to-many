@@ -8,12 +8,21 @@
 
         <div class="row">
             <div class="col-8">
-                <form action="{{ route('admin.projects.store') }}" method="POST">
+                <form action="{{ route('admin.projects.update') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="name"
                             value='{{ $project->name }}'>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                        @foreach ($tecnologies as $tecnology)
+                            <input type="checkbox" class="btn-check" id="tecnology_{{ $tecnology->id }}" autocomplete="off"
+                                name='tecnologies[]' value='{{ $tecnology->id }}'
+                                @if ($project?->tecnologies->contains($tecnology->id)) checked @endif>
+                            <label class="btn btn-outline-primary"
+                                for="tecnology_{{ $tecnology->id }}">{{ $tecnology->name }}</label>
+                        @endforeach
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tecnology;
+use App\Models\Project;
 use Illuminate\Support\Str;
 
 class TecnologyController extends Controller
