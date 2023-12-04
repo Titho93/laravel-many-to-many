@@ -93,9 +93,13 @@ class ProjectController extends Controller
     {
         $form_data = $request->all();
 
-        Storage::disk('public')->delete($project->image);
+        Storage::disk('public');
 
         $form_data['image'] = Storage::put('uploads', $form_data['image']);
+
+        if (array_key_exists('tecnologies', $form_data)) {
+            $project->tecnologies()->attach($form_data['tecnologies']);
+        }
 
         $project->update($form_data);
 
