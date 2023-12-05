@@ -27,7 +27,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>
-                        <input id="image" class="form-control" name="image" type="file">
+                        <input id="image" class="form-control" name="image" type="file"
+                            value="{{ old('image', $project?->image) }}">
                         <img src="{{ asset('storage/' . $project->image) }}" />
                     </div>
                     <div class="mb-3">

@@ -48,7 +48,9 @@ class ProjectController extends Controller
         $new_project = new Project();
         $new_project->fill($form_data);
         $new_project->slug = Str::slug($request->name, "-");
-        $new_project->image = Storage::put('uploads', $form_data['image']);
+        if (array_key_exists('image', $form_data)) {
+            $new_project->image = Storage::put('uploads', $form_data['image']);
+        }
         $new_project->save();
 
         if (array_key_exists('tecnologies', $form_data)) {
@@ -95,7 +97,12 @@ class ProjectController extends Controller
 
         Storage::disk('public');
 
-        $form_data['image'] = Storage::put('uploads', $form_data['image']);
+        if (array_key_exists('image', $form_data)) {
+            if ($project->image) {
+                Storage::disk('public')->delete($project->image);
+            }
+            $form_data['image'] = Storage::put('uploads', $form_data['image']);
+        }
 
         if (array_key_exists('tecnologies', $form_data)) {
             $project->tecnologies()->attach($form_data['tecnologies']);

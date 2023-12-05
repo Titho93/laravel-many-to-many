@@ -26,7 +26,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>
-                        <input type="file" class="form-control" id="image" name="image">
+                        <input type="file" class="form-control" id="image" name="image"
+                            value="{{ old('image', $project?->image) }}">
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label">Date</label>
