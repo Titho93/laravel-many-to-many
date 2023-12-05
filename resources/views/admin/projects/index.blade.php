@@ -2,6 +2,8 @@
 
 @section('content')
     <div class="index w-100 p-5">
+        <a class="btn btn-dark" href="{{ route('admin.projects.create') }}"><i class="fa-solid fa-plus"></i> ADD NEW
+            PROJECT</a>
         <h1><i class="fa-solid fa-diagram-project"></i> Projects List</h1>
         <table class="table w-100">
             <thead>
@@ -31,8 +33,6 @@
                         <td>
                             <a class="btn btn-dark" href="{{ route('admin.projects.show', $project) }}"><i
                                     class="fa-solid fa-circle-info" style="color: #ffffff;"></i></a>
-                            <a class="btn btn-dark" href="{{ route('admin.projects.create', $project) }}"><i
-                                    class="fa-solid fa-plus"></i></a>
                             <a class="btn btn-dark" href="{{ route('admin.projects.edit', $project) }}"><i
                                     class="fa-solid fa-pen-to-square"></i></a>
                             <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project) }}"
